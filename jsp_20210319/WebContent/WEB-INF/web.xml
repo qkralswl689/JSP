@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>jsp_20210319</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description>서블릿</description>
+    <display-name>DemoServlet</display-name>
+    <servlet-name>DemoServlet</servlet-name>
+    <servlet-class>servlet.DemoServlet</servlet-class>
+    <init-param>
+      <description>자바 버전</description>
+      <param-name>java</param-name>
+      <param-value>1.8</param-value>
+    </init-param>
+    <init-param>
+      <description>JSP 버전</description>
+      <param-name>jsp</param-name>
+      <param-value>2.3</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DemoServlet</servlet-name>
+    <url-pattern>/DemoServlet</url-pattern>
+    <url-pattern>/demo.do</url-pattern>
+    <url-pattern>/demo.hkd</url-pattern>
+  </servlet-mapping>
+</web-app>
