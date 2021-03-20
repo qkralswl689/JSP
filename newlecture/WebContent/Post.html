@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<!-- action : http://.../notice-reg 생성  -->
+		<!-- NoticeReg 서블릭생성하여 연결 -->
+		<!-- method="post" : 요청 바디에 전달 => 큰 데이터를 전달할 수 있다 -> 전달값이 URL로 전달되지않는다 => URL은 길이 제한이 있다  -->
+		<form action="notice-reg" method="post">
+			<div>
+				<!-- name : title이라는 키워드를 가지고 입력된 값을 전달한다  -->
+				<label>제목 :</label><input name="title" type="text">
+			</div>
+			<div>
+				<label>내용 :</label>
+				<!-- 여러줄 입력 받기 위해 textarea 사용 -->
+				<textarea name="content"></textarea>
+			</div>
+			<div>
+				<input type="submit" value="등록" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>
