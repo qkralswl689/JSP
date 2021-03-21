@@ -17,6 +17,9 @@ public class NoticeReg extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html; charset=UTF-8");
 		
+		// 한글 입력시 꺠져서 출력되는것 방지
+		//req.setCharacterEncoding("UTF-8");
+		
 		PrintWriter out = resp.getWriter();
 		
 		String title = req.getParameter("title");
