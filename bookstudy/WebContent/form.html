@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Study request</title>
+</head>
+<body>
+	<!-- form의 이름은 frm이고 action1.jsp파일의 액션을 수행하고 get타입으로 인자를 받는다 -->
+	<form name="frm" action="action1.jsp" method="get">
+		- 아이디 : <input type="text" id="id" name="id" /><br> 
+		- 패스워드 : <input type="password" id="pw" name="pw" /><br> 
+		- 이름 : <input type="text" id="name" name="name" /><br> 
+		- 주소 : <input type="text" id="address" name="address" /><br>
+		- 취미 : 스포츠<input type="checkbox" id="hobby1" name="hobby" value="스포츠"/>&nbsp;
+				독서<input type="checkbox" id="hobby2" name="hobby" value="독서" />&nbsp;
+				영화감상<input type="checkbox" id="hobby3" name="hobby" value="영화감상" />&nbsp;
+				요리<input type="checkbox" id="hobby4" name="hobby" value="요리"/><br>
+		<input type="submit" value="전송">
+		
+	</form>
+</body>
+</html>
