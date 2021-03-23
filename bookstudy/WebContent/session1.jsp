@@ -11,7 +11,7 @@
 <!-- session2의 액션 사용, post 메소드 사용 -->
 <FORM action="session2.jsp" Method="post">
 
-아이디   : <input type="text" name="strID"> <BR>
+아이디   : <input type="text" name="strId"> <BR>
 비밀번호 : <input type="password" name="strPwd"> <BR><BR>
 
 <input type="submit" Value="로그인">
