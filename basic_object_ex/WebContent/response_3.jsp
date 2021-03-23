@@ -13,6 +13,7 @@
 	- IE11 : 별다른 반응 없음(?)
  -->
 <%
+/* 현재 페이지가 정상적으로 응답되는 페이지임을 지정 */
  response.setStatus(response.SC_FORBIDDEN);
 %>
 
