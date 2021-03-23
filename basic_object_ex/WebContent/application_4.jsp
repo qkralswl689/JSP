@@ -12,7 +12,7 @@ application.setAttribute("Age", "20세");
 application.setAttribute("Email", "abcd@abcd.com");
 application.setAttribute("Job", "Programmer");
 application.setAttribute("Hobby", "독서");
-
+// removeAttribute(name) : name 속성값을 삭제한다.
 application.removeAttribute("Job");
 %>
 
