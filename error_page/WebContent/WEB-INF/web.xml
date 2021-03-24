@@ -16,9 +16,9 @@
 		<location>/error/500.jsp</location>
 	</error-page>
 	
-	<error-page>
+	<!--<error-page>
 		<exception-type>java.lang.NullPointerException</exception-type>
 		<location>/error/NullPointer.jsp</location>
-	</error-page>
+	</error-page>-->
 	
 </web-app>
