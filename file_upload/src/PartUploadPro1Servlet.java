@@ -14,8 +14,8 @@ import javax.servlet.http.Part;
 
 @WebServlet("/partUploadPro1")
 @MultipartConfig(
-		fileSizeThreshold=0,
-		location="D:\\lsh\\works\\upload"
+		fileSizeThreshold=0,// 전송하는 데이터가 0 이상이면
+		location="D:\\lsh\\works\\upload" // 디스크에 임시저장(절대경로: 설정 잘 안한다)
 		)
 public class PartUploadPro1Servlet extends HttpServlet {
 	private static final long serialVersionUID=1L;
@@ -34,7 +34,11 @@ public class PartUploadPro1Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+		
+		// 문자열 얻는방법
 		String writer=request.getParameter("writer");
+		
+		// Part : 파일을 받을 수 있다
 		Part part=request.getPart("partFile1");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out=response.getWriter();
