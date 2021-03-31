@@ -1,0 +1,18 @@
+ <Context> 
+<!--  <Resource name="jdbc/oj" 
+         auth="Container"
+         type="javax.sql.DataSource" 
+         username="javaDB" 
+         password="javaDB"
+         driverClassName="com.mysql.jdbc.Driver"
+         factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+         url="jdbc:mysql://localhost:3306/test_db"
+         maxActive="500" 
+         maxIdle="100"/>   -->
+         
+         <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver"
+			factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+			maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/xe" password="sample"
+			type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe"
+			username="sample" />
+ </Context>

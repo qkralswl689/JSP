@@ -1,0 +1,5 @@
+우선적으로 oracle XE의 DBA(관리자)계정으로 진입하여 sample 계정을 아래와 같이 작성하고 권한을 부여합니다.
+
+create user sample identified by sample;
+
+grant connect, resource to sample;
