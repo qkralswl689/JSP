@@ -47,7 +47,7 @@ import vo.PageInfo;
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("articleList", articleList);
 		ActionForward forward= new ActionForward();
-   		forward.setPath("/board/qna_board_list.jsp");
+   		forward.setPath("/board/qna_board_list.jsp"); // 인자 전송
    		return forward;
    		
 	 }

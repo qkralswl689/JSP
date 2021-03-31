@@ -15,97 +15,91 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class add
  */
-@WebServlet("/calcPage")
+@WebServlet("/calcpage")
 public class calcPage extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public calcPage() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
+		//쿠키 배열변수 선언
+				Cookie[] cookies = request.getCookies();	
+				
+		// 쿠키 읽어오는 연산식
+		String exp="0";	
+		if(cookies !=null) { // 쿠키가 null이 아닐경우
+			for(Cookie c : cookies) { // 연산식 실행
+				if(c.getName().equals("exp")) {
+					exp =c.getValue();
+					break;
+					}
+				}
+		}
+		
+
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		
-		<!DOCTYPE html>
-		<html>
-		<head>
-		<meta charset="UTF-8">
-		<title>calc</title>
-		<style>
-		input{
-			width : 50px;
-			height : 50px;
-		}
-		.output{
-			height : 50px;
-			background : #e9e9e9;
-			font-size:24px;
-			font-weight : bold;
-			text-align : right;
-			padding : 0px, 5px;
-		}
-		</style>
-		</head>
-		<body>
-			<form action="calc3" method="post">
-				<table>
-					<tr>
-						<td class="output"colspan="4">0</td>
-					</tr>
-					<tr>
-						<td><input type="submit" name="operator" value="CE" /></td>
-						<td><input type="submit" name="operator" value="C" /></td>
-						<td><input type="submit" name="operator" value="BS" /></td>
-						<td><input type="submit" name="operator" value="÷" /></td>
-					</tr>
-					<tr>
-						<td><input type="submit" name="value" value="7" /></td>
-						<td><input type="submit" name="value" value="8" /></td>
-						<td><input type="submit" name="value" value="9" /></td>
-						<td><input type="submit" name="operator" value="*" /></td>
-					</tr>
-					<tr>
-						<td><input type="submit" name="value" value="4" /></td>
-						<td><input type="submit" name="value" value="5" /></td>
-						<td><input type="submit" name="value" value="6" /></td>
-						<td><input type="submit" name="operator" value="-" /></td>
-					</tr>
-					<tr>
-						<td><input type="submit" name="value" value="1" /></td>
-						<td><input type="submit" name="value" value="2" /></td>
-						<td><input type="submit" name="value" value="3" /></td>
-						<td><input type="submit" name="operator" value="+" /></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><input type="submit" name="value" value="0" /></td>
-						<td><input type="submit" name="dot" value="." /></td>
-						<td><input type="submit" name="operator" value="=" /></td>
-					</tr>
-				</table>
-				
-			
-			</form>
-		</body>
-		</html>
-		
+		PrintWriter out = response.getWriter();
+
+// 동적으로 만들었다
+out.write("<!DOCTYPE html>");
+out.write("<html>");
+out.write("<head>");
+out.write("<meta charset=\"UTF-8\"> ");
+out.write("<title>calc</title>");
+out.write("<style>");
+out.write("input{");
+out.write("	width : 50px;");
+out.write("	height : 50px;");
+out.write("}");
+out.write(".output{");
+out.write("height : 50px;");
+out.write("background : #e9e9e9;");
+out.write("font-size:24px;");
+out.write("font-weight : bold;");
+out.write("text-align : right;");
+out.write("padding : 0px, 5px;");
+out.write("}");
+out.write("</style>");
+out.write("</head>");
+out.write("<body>");
+out.write("<form action=\"calc3\" method=\"post\">");
+out.write("<table>");
+out.write("<tr>");
+out.printf(		"<td class=\"output\" colspan=\"4\">%s</td>",exp); // exp 출력
+out.write("</tr>");
+out.write("<tr>");
+out.write("<td><input type=\"submit\" name=\"operator\" value=\"CE\" /></td>");
+out.write("<td><input type=\"submit\" name=\"operator\" value=\"C\" /></td>");
+out.write("<td><input type=\"submit\" name=\"operator\" value=\"BS\" /></td>");
+out.write("<td><input type=\"submit\" name=\"operator\" value=\"/\" /></td>");
+out.write("</tr>");
+out.write("<tr>");
+out.write("<td><input type=\"submit\" name=\"value\" value=\"7\" /></td>");
+out.write("<td><input type=\"submit\" name=\"value\" value=\"8\" /></td>");
+out.write("<td><input type=\"submit\" name=\"value\" value=\"9\" /></td>");
+out.write("<td><input type=\"submit\" name=\"operator\" value=\"*\" /></td>");
+out.write("</tr>");
+out.write("<tr>");
+out.write("<td><input type=\"submit\" name=\"value\" value=\"4\" /></td>");
+out.write("<td><input type=\"submit\" name=\"value\" value=\"5\" /></td>");
+out.write("<td><input type=\"submit\" name=\"value\" value=\"6\" /></td>");
+out.write("<td><input type=\"submit\" name=\"operator\" value=\"-\" /></td>");
+out.write("</tr>");
+out.write("<tr>");
+out.write("<td><input type=\"submit\" name=\"value\" value=\"1\" /></td>");
+out.write("<td><input type=\"submit\" name=\"value\" value=\"2\" /></td>");
+out.write("<td><input type=\"submit\" name=\"value\" value=\"3\" /></td>");
+out.write("<td><input type=\"submit\" name=\"operator\" value=\"+\" /></td>");
+out.write("</tr>");
+out.write("<tr>");
+out.write("<td></td>");
+out.write("<td><input type=\"submit\" name=\"value\" value=\"0\" /></td>");
+out.write("<td><input type=\"submit\" name=\"dot\" value=\".\" /></td>");
+out.write("<td><input type=\"submit\" name=\"operator\" value=\"=\" /></td>");
+out.write("</tr>");
+out.write("</table>");
+out.write("</form>");
+out.write("</body>");
+out.write("</html>");
 	}
 
 }
