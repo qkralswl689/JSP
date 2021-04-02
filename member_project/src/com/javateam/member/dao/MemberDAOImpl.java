@@ -52,7 +52,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		String msg = "";
 		 
 		// 1. DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 2. SQL 구문
 		String sql = "INSERT INTO member_tbl VALUES " 
@@ -116,7 +116,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		MemberVO member = new MemberVO();
 		
 		// 2. DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 3. SQL 구문
 		String sql = "SELECT * FROM member_tbl " 
@@ -180,7 +180,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		String msg = "";
 		
 		// 1. DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 2. SQL 구문
 		String sql = "UPDATE member_tbl SET " 
@@ -243,7 +243,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		String msg = "";
 		
 		// 1. DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 2. SQL 구문
 		String sql = "DELETE FROM member_tbl WHERE member_id=?";
@@ -297,7 +297,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		// 중복행 출력 !
 		
 		// 3. DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 4. SQL 구문
 		String sql = "SELECT * FROM member_tbl";
@@ -362,7 +362,7 @@ public final class MemberDAOImpl implements MemberDAO {
         = new ExceptionMetadata(new Exception().getStackTrace()[0]);
 		
 		int result = 0;		
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -519,7 +519,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		boolean flag = false;
 
 		// 3. DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 4. SQL 구문 : count(*) 오라클 함수 활용
 		/*
@@ -603,7 +603,7 @@ public final class MemberDAOImpl implements MemberDAO {
         = new ExceptionMetadata(new Exception().getStackTrace()[0]);
 		
 		String msg = "";
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		String sql = "SELECT * FROM member_tbl " 
 				   + "WHERE member_id=? AND member_password=?";
 		PreparedStatement pstmt = null;
@@ -658,7 +658,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		MemberVO member = null;
 		
 		// 3.DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 4.SQL 구문 : 페이징 적용
 		// 첫번째 인자 : 한번에 가져올 수 있는 인원수
@@ -737,7 +737,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		MemberVO member = null;
 		
 		// 3.DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 4.유사 검색 여부에 따른 연산자 및 필드값 부분 처리, SQL 구문
 		String expr = isLike == true ? "like '%"+value+"%'" : "= '"+value+"'";	
@@ -873,7 +873,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		MemberVO member = null;
 		
 		// 3.DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 4.유사 검색 여부에 따른 연산자 및 필드값 부분 처리, SQL 구문
 		String expr = isLike == true ? "like '%"+value+"%'" : "= '"+value+"'";	
@@ -952,7 +952,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		boolean flag = false;
 
 		// 3. DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 4. SQL 구문 : count(*) 오라클 함수 활용
 		StringBuilder sb = new StringBuilder();
@@ -1001,7 +1001,7 @@ public final class MemberDAOImpl implements MemberDAO {
         = new ExceptionMetadata(new Exception().getStackTrace()[0]);
 		
 		String msg = "";
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		String sql = "SELECT member_id FROM member_tbl " 
 				   + "WHERE member_name=? "
 				   + "AND member_email=? "
@@ -1045,7 +1045,7 @@ public final class MemberDAOImpl implements MemberDAO {
         = new ExceptionMetadata(new Exception().getStackTrace()[0]);
 		
 		String msg = "";
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		String sql = "SELECT member_password FROM member_tbl " 
 				   + "WHERE member_id=? "
 				   + "AND member_name=? "
@@ -1091,7 +1091,7 @@ public final class MemberDAOImpl implements MemberDAO {
         = new ExceptionMetadata(new Exception().getStackTrace()[0]);
 		
 		String msg = "";
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		String sql = "SELECT member_role FROM user_role " 
 				   + "WHERE member_id=?";
 		PreparedStatement pstmt = null;
@@ -1127,7 +1127,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		ExceptionMetadata emd
         = new ExceptionMetadata(new Exception().getStackTrace()[0]);
 		
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		String sql = "DELETE FROM user_role WHERE member_id=?";
 		PreparedStatement pstmt = null;
 		
@@ -1156,7 +1156,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		
 		ExceptionMetadata emd
          = new ExceptionMetadata(new Exception().getStackTrace()[0]);
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		String sql = "INSERT INTO user_role VALUES (user_role_seq.nextval,?,?)";
 		PreparedStatement pstmt = null;
 		
@@ -1186,7 +1186,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		
 		ExceptionMetadata emd
         = new ExceptionMetadata(new Exception().getStackTrace()[0]);
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		String sql = "UPDATE user_role SET " 
 				   + "	member_role=? " 
 				   + "WHERE member_id=?";
@@ -1221,7 +1221,7 @@ public final class MemberDAOImpl implements MemberDAO {
         = new ExceptionMetadata(new Exception().getStackTrace()[0]);
 		List<RoleVO> roles = new ArrayList<>();
 		RoleVO role = null;
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 
 		// 첫번째 인자 : 한번에 가져올 수 있는 인원수
 		// 두번째 인자 : 현재 페이지
