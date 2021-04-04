@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-	<Resource
-		name="jdbc/dogTest"
-		auth="Container"
-		type="javax.sql.DataSource"
-		username="sample"
-		password="sample"
-		driverClassName="oracle.jdbc.driver.OracleDriver"
-		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-		url="jdbc:oracle:thin:@localhost:1521:XE"
-		maxActive="500"
-	/>
+	<!-- oracle -->
+	<Resource name="jdbc/xe"
+		 auth="Container"
+		 type="javax.sql.DataSource"
+		 driverClassName="oracle.jdbc.OracleDriver"
+		 factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+		 url="jdbc:oracle:thin:@localhost:1521:xe"
+		 username="mingki"
+		 password="1234" 
+		 maxActive="20" 
+		 maxIdle="10"
+		 maxWait="-1" />
 </Context>
