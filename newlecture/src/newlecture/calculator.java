@@ -13,30 +13,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// get,post 합치기
 @WebServlet("/calculator")
 public class calculator extends HttpServlet {
-	
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//쿠키 배열변수 선언
-				Cookie[] cookies = request.getCookies();	
-						
-				// 쿠키 읽어오는 연산식
-				String exp="0";	
-				if(cookies !=null) { // 쿠키가 null이 아닐경우
-					for(Cookie c : cookies) { // 연산식 실행
-						if(c.getName().equals("exp")) {
-							exp =c.getValue();
-							break;
-							}
-						}
-				}
+		Cookie[] cookies = request.getCookies();	
 				
+		// 쿠키 읽어오는 연산식
+		String exp="0";	
+		if(cookies !=null) { // 쿠키가 null이 아닐경우
+			for(Cookie c : cookies) { // 연산식 실행
+				if(c.getName().equals("exp")) {
+					exp =c.getValue();
+					break;
+					}
+				}
+		}
+		
 
-				response.setCharacterEncoding("UTF-8");
-				response.setContentType("text/html; charset=UTF-8");
-				PrintWriter out = response.getWriter();
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 
 		// 동적으로 만들었다
 		out.write("<!DOCTYPE html>");
@@ -60,7 +59,7 @@ public class calculator extends HttpServlet {
 		out.write("</style>");
 		out.write("</head>");
 		out.write("<body>");
-		out.write("<form method=\"post\">");
+		out.write("<form action=\"calc3\" method=\"post\">");
 		out.write("<table>");
 		out.write("<tr>");
 		out.printf(		"<td class=\"output\" colspan=\"4\">%s</td>",exp); // exp 출력
@@ -100,6 +99,7 @@ public class calculator extends HttpServlet {
 		out.write("</body>");
 		out.write("</html>");
 	}
+	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//쿠키 배열변수 선언
@@ -155,9 +155,7 @@ public class calculator extends HttpServlet {
 		// 쿠키로 저장
 		response.addCookie(expCookie);
 		
+		// redirection 기능 : 페이지 이동기능 => +,-연산시 빈페이지 전달받지않음
 		response.sendRedirect("calculator");
-				
-	
 	}
-
 }
