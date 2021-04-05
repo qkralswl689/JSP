@@ -1,0 +1,40 @@
+-- 연락처(전화번호) 중복 점검
+
+SELECT count(*) FROM member
+WHERE member_phone = '010-1234-1001';
+
+SELECT count(*) FROM member
+WHERE member_phone = '010-5678-1001';
+
+-- decode 함수(조건 구문 함수) 활용
+-- 0 (중복 없음) -> true(사용가)
+-- 1 (중복 있음) -> false(사용 불가)
+SELECT DECODE(count(*), 0, 'true', 1, 'false') FROM member
+WHERE member_phone = '010-1234-1001';
+
+SELECT DECODE(count(*), 0, 'true', 1, 'false') FROM member
+WHERE member_phone = '010-5678-1001';
+
+
+-- 연락처(전화번호) 중복 점검
+
+-- 회원 아이디/연락처(전화번호) => 회원정보 수정시 
+-- 기존의 연락처(전화번호)과 중복이 안되면서 
+-- 기존의 자신의 연락처(전화번호)과는 중복 허용(수정 안하고 재사용 가능)
+
+-- case) 회원 연락처(전화번호) 변경하고자 함.
+
+-- 0 : 사용가 : 자신의 것을 재사용
+SELECT count(*) FROM member
+WHERE member_id != 'goodee_1001'	
+  AND member_phone = '010-1234-1001';
+
+-- 1 : 사용불가 : 다른 회원 아이디의 연락처(전화번호)과 중복
+SELECT count(*) FROM member
+WHERE member_id != 'goodee_1001'	
+  AND member_phone = '010-1234-1002';
+
+-- 0 : 사용가 : 중복 안되는 새로운 연락처(전화번호)
+SELECT count(*) FROM member
+WHERE member_id != 'goodee_1001'	
+  AND member_phone = '010-5678-1111';  

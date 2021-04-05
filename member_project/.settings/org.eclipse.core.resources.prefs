@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding//src/com/javateam/member/action=UTF-8
 encoding//src/com/javateam/member/action/DemoAction.java=UTF-8
 encoding//src/com/javateam/member/action/TemplateAction.java=UTF-8
+encoding//src/com/javateam/member/dao/MemberDAOImpl.java=UTF-8
 encoding/<project>=UTF-8

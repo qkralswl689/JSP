@@ -1,0 +1,6 @@
+sql.append("UPDATE member SET ");
+sql.append("member_password=?, ");
+sql.append("member_zip=?, ");
+sql.append("member_address_basic=?, "); 
+sql.append("member_address_detail=? ");
+sql.append("WHERE member_id=?");

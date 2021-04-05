@@ -21,7 +21,7 @@ public class calcPage extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		//쿠키 배열변수 선언
-				Cookie[] cookies = request.getCookies();	
+		Cookie[] cookies = request.getCookies();	
 				
 		// 쿠키 읽어오는 연산식
 		String exp="0";	

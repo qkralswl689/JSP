@@ -1,0 +1,11 @@
+member.setMemberId("");
+member.setMemberPassword("");
+member.setMemberNickname("");
+member.setMemberName("");
+member.setMemberGender('');
+member.setMemberEmail("");
+member.setMemberPhone("");
+member.setMemberBirth("");
+member.setMemberZip("");
+member.setMemberAddressBasic("");
+member.setMemberAddressDetail("");

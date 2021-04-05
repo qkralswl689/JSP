@@ -1,0 +1,10 @@
+sb.append("SELECT * ") 
+  .append("FROM (SELECT ROWNUM,") 
+  .append("             m.*,") 
+  .append("             FLOOR((ROWNUM - 1) / ? + 1) page ") 
+  .append("      FROM ( ") 
+  .append("             SELECT * FROM member ") 
+  .append("             ORDER BY member_id ASC ") 
+  .append("           ) m ") 
+  .append("      ) ") 
+  .append("WHERE page = ?");

@@ -1,0 +1,11 @@
+pstmt.setString(1, member.getMemberId());
+pstmt.setString(2, member.getMemberPassword());
+pstmt.setString(3, member.getMemberNickname());
+pstmt.setString(4, member.getMemberName());
+pstmt.setString(5, member.getMemberGender()+"");
+pstmt.setString(6, member.getMemberEmail());
+pstmt.setString(7, member.getMemberPhone());
+pstmt.setDate(8, member.getMemberBirth());
+pstmt.setString(9, member.getMemberZip());
+pstmt.setString(10, member.getMemberAddressBasic());
+pstmt.setString(11, member.getMemberAddressDetail());

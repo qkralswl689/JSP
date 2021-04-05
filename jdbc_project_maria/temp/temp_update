@@ -1,0 +1,6 @@
+UPDATE member SET
+member_password=?,
+member_zip=?,
+member_address_basic=?,
+member_address_detail=?
+WHERE member_id=?

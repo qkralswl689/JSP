@@ -89,6 +89,9 @@ public class calc3 extends HttpServlet {
 		if(operator !=null && operator.equals("C")) { // 조건에 해당 될 때만
 			expCookie.setMaxAge(0); // 쿠키삭제(브라우저에서)
 		}
+		
+		//expCookie.setPath("/");
+		
 		// 쿠키로 저장
 		response.addCookie(expCookie);
 		

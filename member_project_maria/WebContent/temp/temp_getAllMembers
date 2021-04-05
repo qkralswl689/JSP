@@ -1,0 +1,12 @@
+member.setMemberId(rs.getString("member_id"));
+member.setMemberPassword(rs.getString("member_password"));
+member.setMemberNickname(rs.getString("member_nickname"));
+member.setMemberName(rs.getString("member_name"));
+member.setMemberGender(rs.getString("member_gender").charAt(0));
+member.setMemberEmail(rs.getString("member_email"));
+member.setMemberPhone(rs.getString("member_phone"));
+member.setMemberBirth(rs.getDate("member_birth"));
+member.setMemberZip(rs.getString("member_zip"));
+member.setMemberAddressBasic(rs.getString("member_address_basic"));
+member.setMemberAddressDetail(rs.getString("member_address_detail"));
+member.setMemberJoindate(rs.getDate("member_joindate"));
