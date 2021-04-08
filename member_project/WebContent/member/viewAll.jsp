@@ -132,7 +132,7 @@ window.onload = function() {
 			
 			<tbody>
 			
-				<c:set var="page" value="${empty page ? 0 : page}" />
+				<c:set var="page" value="${empty page ? 1 : page}" />
 				<c:set var="limit" value="${empty limit ? 1 : limit}" /> 
 				
 				<c:forEach items="${members}" var="member" varStatus="st">

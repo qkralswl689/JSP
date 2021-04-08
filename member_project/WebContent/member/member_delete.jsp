@@ -52,7 +52,19 @@ span#err_msg { color:red; }
 					 	&nbsp; <b>삭제할 회원 아이디 :</b> 
 				 	 </label>
 				 	 
-		  			 <input type="text" 
+				 	 <!-- 이 부분에서는  현재 로그인 중에 있는 아이디만을 삭제해야 되므로 다른 아이디가 입력되지 않게 하려면 아래와 같이 
+				 	 	  조치하면 됩니다. -->
+				 	 	  
+				 	 <input type="text" 
+		            		id="memberId" 
+		              		name="memberId"  
+		                    required
+		                    readonly
+		                    class="form-control ml-3 mr-3"  
+		                    value="${sessionScope.LOGIN_SESSION}">
+		             
+		             <!-- 로그인 없이 일반적인 입력시 삭제할 경우 -->       
+		  			 <%-- <input type="text" 
 		            		id="memberId" 
 		              		name="memberId"  
 		                    maxlength="20" 
@@ -61,7 +73,7 @@ span#err_msg { color:red; }
 		                    required
 		                    class="form-control ml-3 mr-3"  
 		                    placeholder="아이디를 입력하십시오"
-		                    value="${param.memberId}">
+		                    value="${param.memberId}"> --%>
 		                    <!-- 이 부분에서 아이디를 다시 입력하지 않으려면 value="${param.memberId}" 와 같이 조치 -->
 		              
 		              <input type="submit" class="btn btn-primary" value="전송" />

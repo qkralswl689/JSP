@@ -9,7 +9,7 @@ import com.javateam.member.dao.MemberDAO;
 import com.javateam.member.dao.MemberDAOImpl;
 import com.javateam.member.domain.MemberVO;
 
-public class MemberUpdateFormAction implements CommandAction {
+public class MemberUpdateFormAction2 implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -42,14 +42,19 @@ public class MemberUpdateFormAction implements CommandAction {
 			String memberId = request.getParameter("memberId").trim();
 			
 			// 이 부분에서 기존 회원정보에 대한 세션여부를 점검하여 미생성 되었을 경우는
-			// 기존 회원정보의 세션을 생성하여 페이지 이동시에도 정보가 보존되도록 조치할 수 있다 => MemberUpdateFormAction2파일에 있음
-			MemberDAO dao = MemberDAOImpl.getInstance();
-			MemberVO member = dao.getMember(memberId);
+			// 기존 회원정보의 세션을 생성하여 페이지 이동시에도 정보가 보존되도록 조치할 수 있다
 			
-			System.out.println("member : "+member);
+			if(session.getAttribute("LEGACY_MEMBER_SESSION") == null) {
 			
-			request.setAttribute("member", member);
-			
+				MemberDAO dao = MemberDAOImpl.getInstance();
+				MemberVO member = dao.getMember(memberId);
+				
+				System.out.println("member : "+member);
+				
+				session.setAttribute("LEGACY_MEMBER_SESSION", member);
+				
+				// request.setAttribute("member", member);
+			}
 			// returnPath = "/member/member_update.jsp";
 			// template 적용시
 			returnPath = "/template.do?content_page=/member/member_update.jsp";

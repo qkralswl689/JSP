@@ -397,7 +397,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		String sql = "SELECT * FROM member_tbl";
 		MemberVO members[] = new MemberVO[this.getRowCount("SELECT count(*) FROM member_tbl")];
 		MemberVO member = null;
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int count = 0;
@@ -470,7 +470,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		boolean flag = false;
 
 		// 3. DB 연결
-		Connection con = DbUtil.connect("sample", "sample");
+		Connection con = DbUtil.connect("mingki", "1234");
 		
 		// 4. SQL 구문 : count(*) 오라클 함수 활용
 		String sql = "SELECT count(*) FROM member_tbl WHERE member_id=?";
@@ -646,6 +646,7 @@ public final class MemberDAOImpl implements MemberDAO {
 		return msg;
 	} //
 
+
 	@Override
 	public List<MemberVO> getMembersByPaging(int page, int limit) {
 		
@@ -724,7 +725,6 @@ public final class MemberDAOImpl implements MemberDAO {
 		
 		return members;
 	} //
-
 	@Override
 	public List<MemberVO> getMembersByField(String fld, Object value, boolean isLike) {
 		
