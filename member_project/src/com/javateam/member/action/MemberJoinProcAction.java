@@ -49,10 +49,6 @@ public class MemberJoinProcAction implements CommandAction {
 			 msg = "회원 가입에 실패하였습니다."; 
 		}
 		
-		request.setAttribute("msg", msg);
-		
-		// return "/error/result.jsp";
-		
 		// template 적용시
 		request.setAttribute("msg", msg);
 		request.setAttribute("move_page", "/template.do?content_page=/member/member_join.jsp");

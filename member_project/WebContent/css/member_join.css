@@ -132,10 +132,6 @@ input[id^=join][id$=Btn]:hover {
 /* 
 
 /* 성별 필드 : 라디오 버튼 */
-/*
-	https://cafe.naver.com/ojbigjp2/134 를 참조하여 작성하십시오.
-	버그 패치 : 최상단 네비게이션과의 CSS 충돌 보정
-*/
 ul#radio_gender li {
 	color:#000;
 	display:block;

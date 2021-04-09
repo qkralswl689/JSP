@@ -3,7 +3,7 @@ package com.javateam.member.domain;
 /**
  * 회원 롤(Role) VO
  * 
- * @author javateam *
+ * @author javateam 
  */
 public class RoleVO {
 	

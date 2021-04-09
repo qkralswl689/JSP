@@ -11,20 +11,42 @@ import java.util.Date;
 import java.util.List;
 
 import com.newlecture.web.entity.Notice;
+import com.newlecture.web.entity.NoticeView;
 
 public class NoticeService {
+	
+	public int removeNotice(int [] ids){
+		return 0;
+	}
+	public int pubNoticeAll(int [] ids){
+		return 0;
+	}
+	public int insertNotice(Notice notice){
+		return 0; 
+	}
 
-	public List<Notice> getNoticeList(){
+	public int deleteNotice(int id){
+		
+		return 0;
+	}
+	public int updateNotice(Notice notice){
+		return 0; 
+	}
+	List<Notice> getNoticeNewestList(){
+		return null;
+	}
+
+	public List<NoticeView> getNoticeList(){
 		
 		return getNoticeList("title","",1);
 	}
-	public List<Notice> getNoticeList(int page){
+	public List<NoticeView> getNoticeList(int page){
 		
 		return getNoticeList("title","",page);
 	}
-	public List<Notice> getNoticeList(String field/*TITLE, WRITER_ID*/, String query/*A*/, int page){
+	public List<NoticeView> getNoticeList(String field/*TITLE, WRITER_ID*/, String query/*A*/, int page){
 		
-		List<Notice> list = new ArrayList<>();
+		List<NoticeView> list = new ArrayList<>();
 		
 		/** JDBC URL */	
 		 String URL = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -32,7 +54,7 @@ public class NoticeService {
 
 		String sql = "SELECT * FROM( " + 
 				"    select rownum num, n.* " + 
-				"    from (select * from notice WHERE "+field+" LIKE ? order by regdate desc) n" + 
+				"    from (select * from notice_view WHERE "+field+" LIKE ? order by regdate desc) n" + 
 				") " + 
 				"where num between ? and ?";
 		
@@ -59,16 +81,18 @@ public class NoticeService {
 						String writerId = rs.getString("WRITER_ID");
 						String hit = rs.getString("HIT") ;
 						String files = rs.getString("FILES") ;
-						String content = rs.getString("CONTENT") ;
+						//String content = rs.getString("CONTENT") ;
+						int cmtCount = rs.getInt("CMT_COUNT");
 						
-						Notice notice  = new Notice(
+						NoticeView notice  = new NoticeView(
 								id,
 								title,
 								regdate,
 								writerId,
 								hit,
 								files,
-								content
+								//content,
+								cmtCount
 					); 
 						list.add(notice);
 					}

@@ -153,7 +153,7 @@ $(function() {
                 	   $("#memberId_err").text("");
                 	   idCheckFlag = true;
                    } else {
-                       $("#memberId_err").text(data);
+                       $("#memberId_err").text(data);``
                        idCheckFlag = false;
                    }
                                   	

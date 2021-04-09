@@ -29,7 +29,6 @@
 	                		   name="memberId"
 	                		   readonly="readonly"
 	                		   value="<c:out value='${member.memberId}' />" />
-	                		    
 	                </td>  
 	            </tr>  
 				<!--// 아이디 -->  

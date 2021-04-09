@@ -47,7 +47,7 @@ public class AuthFilter implements Filter {
 		HttpSession session = req.getSession();
 		String contextPath = req.getContextPath();
 		boolean adminYn = false;
-		// 세션 생성여부 점검
+		
 		if (session.getAttribute("LOGIN_SESSION")==null) {
 			
 			System.out.println("로그인 미인증");

@@ -41,8 +41,9 @@ public class MemberUpdateFormAction implements CommandAction {
 			
 			String memberId = request.getParameter("memberId").trim();
 			
-			// 이 부분에서 기존 회원정보에 대한 세션여부를 점검하여 미생성 되었을 경우는
-			// 기존 회원정보의 세션을 생성하여 페이지 이동시에도 정보가 보존되도록 조치할 수 있다 => MemberUpdateFormAction2파일에 있음
+            // 이 부분에서 기존 회원정보에 대한 세션여부를 점검하여 미생성되었을 경우는
+            // 기존 회원정보의 세션을 생성하여 페이지 이동시에도 정보가 보존되도록 조치할 수 있다.
+			
 			MemberDAO dao = MemberDAOImpl.getInstance();
 			MemberVO member = dao.getMember(memberId);
 			

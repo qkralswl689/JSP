@@ -9,7 +9,7 @@ import com.javateam.member.dao.MemberDAOImpl;
 import com.javateam.member.domain.MemberVO;
 
 public class MemberViewAction implements CommandAction {
-
+	
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

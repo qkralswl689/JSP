@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/sql/dml.sql=UTF-8
+encoding//WebContent/sql/member_plsql_test.sql=UTF-8
 encoding//src/com/javateam/jdbc/member/dao/impl/MemberDaoImpl.java=MS949
 encoding/src=UTF-8

@@ -18,7 +18,7 @@ public class GetAllMembersPagingTest {
 
 		MemberDAO dao = MemberDAOImpl.getInstance();
 		
-		for (MemberVO m : dao.getMembersByPaging(1, 10)) {
+		for (MemberVO m : dao.getMembersByPaging(3, 10)) {
 			System.out.println(m);
 		} // 		
 		

@@ -11,8 +11,8 @@ public class JdbcTest {
 	// oracle spec               
 	final String oracleDriver = "oracle.jdbc.OracleDriver"; // 드라이버
 	final String oracleURL = "jdbc:oracle:thin:@localhost:1521:xe"; // URL
-	final String oracleID = "mingki"; // 계정 아이디
-	final String oraclePW = "1234"; // 패쓰워드
+	final String oracleID = "hr"; // 계정 아이디
+	final String oraclePW = "hr"; // 패쓰워드
 
 	// DB 연결(connection)
 	public Connection getConnection() {

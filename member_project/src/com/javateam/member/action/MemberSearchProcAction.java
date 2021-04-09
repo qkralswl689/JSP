@@ -35,7 +35,10 @@ public class MemberSearchProcAction implements CommandAction {
 			String searchKind = request.getParameter("search_kind");
 			String searchWord = request.getParameter("search_word").trim();
 			
-			boolean isLike = false; // 유사 검색 여부
+			System.out.println("검색 종류 : " + searchKind);
+			System.out.println("검색어 : " + searchWord);
+			
+			boolean isLike = true; // 유사 검색 여부
 
 			String fld = searchKind.contentEquals("아이디") ? "member_id" :
 						 searchKind.contentEquals("별명") ? "member_nickname" :
@@ -57,8 +60,13 @@ public class MemberSearchProcAction implements CommandAction {
 			// List<MemberVO> members = dao.getMembersByPaging(page, limit);
 			List<MemberVO> members = dao.getMembersByFieldAndPaging(fld, searchWord, isLike, page, limit);
 			
-			int membersNum = dao.getAllMembers().size();
+			// int membersNum = dao.getAllMembers().size();
+			// 교정
+			int membersNum = dao.getMembersByField(fld, searchWord, isLike).size();
 			int listCount = members.size();
+			
+			System.out.println("membersNum : " + membersNum);
+			System.out.println("listCount : " + listCount);
 			
 			// 총 페이지 수
 	   		int maxPage = (int)((double)membersNum/10+0.95); //0.95를 더해서 올림 처리

@@ -120,15 +120,12 @@ $(function() {
 		                <td>
 		                	<input type="hidden" id="memberPassword" name="memberPassword" value="${member.memberPassword}">
 		                	
-		                			<!-- type="password" , value="${member.memberPassword }"
-		                			      설정 하면 패스워드 *****로 표시 된다-->
-		                	<input type="text" 
+		                	<input type="password" 
 		                		   id="memberPassword1"  
 		                    	   name="memberPassword1" 
 		                    	   maxlength="20" 
 		                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,20}"  
-								   title="패쓰워드는 영문대소문자/특수문자/숫자 조합하여 8~20자로 입력하십시오"
-								  <%--  value="${member.memberPassword }" --%>>
+								   title="패쓰워드는 영문대소문자/특수문자/숫자 조합하여 8~20자로 입력하십시오">
 		                </td>  
 		            </tr>  
 					<!--// 패쓰워드  -->  
