@@ -83,6 +83,7 @@ public class NoticeService {
 						String files = rs.getString("FILES") ;
 						//String content = rs.getString("CONTENT") ;
 						int cmtCount = rs.getInt("CMT_COUNT");
+						boolean pub = rs.getBoolean("PUB");
 						
 						NoticeView notice  = new NoticeView(
 								id,
@@ -91,6 +92,7 @@ public class NoticeService {
 								writerId,
 								hit,
 								files,
+								pub,
 								//content,
 								cmtCount
 					); 
@@ -177,6 +179,7 @@ public class NoticeService {
 					String hit = rs.getString("HIT") ;
 					String files = rs.getString("FILES") ;
 					String content = rs.getString("CONTENT") ;
+					boolean pub = rs.getBoolean("PUB");
 					
 					notice  = new Notice(
 							nid,
@@ -185,7 +188,8 @@ public class NoticeService {
 							writerId,
 							hit,
 							files,
-							content
+							content,
+							pub
 				); 
 					
 				}
@@ -233,6 +237,7 @@ public class NoticeService {
 					String hit = rs.getString("HIT") ;
 					String files = rs.getString("FILES") ;
 					String content = rs.getString("CONTENT") ;
+					boolean pub = rs.getBoolean("PUB");
 					
 					notice  = new Notice(
 							nid,
@@ -241,7 +246,8 @@ public class NoticeService {
 							writerId,
 							hit,
 							files,
-							content
+							content,
+							pub
 				); 
 					
 				}
@@ -284,6 +290,7 @@ public class NoticeService {
 					String hit = rs.getString("HIT") ;
 					String files = rs.getString("FILES") ;
 					String content = rs.getString("CONTENT") ;
+					boolean pub = rs.getBoolean("PUB");
 					
 					notice  = new Notice(
 							nid,
@@ -292,7 +299,8 @@ public class NoticeService {
 							writerId,
 							hit,
 							files,
-							content
+							content,
+							pub
 				); 
 					
 				}
@@ -307,5 +315,41 @@ public class NoticeService {
 			}
 			
 		return notice;
+	}
+	public int deleteNoticeAll(int[] ids) {
+		
+		int result = 0;
+		
+		String params = "";
+		
+		for(int i=0; i<ids.length;i++) {
+			params +=ids[i];
+			
+			// 마지막이면 , 출력 안한다
+			if(i < ids.length-1)
+				params +=",";
+		}
+		String sql = "DELETE NOTICE WHERE ID IN ("+params+")";
+		/** JDBC URL */	
+		 String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+		 
+			/** JDBC 드라이버(driver) */
+			try {
+				Class.forName("oracle.jdbc.OracleDriver");
+				Connection con = DriverManager.getConnection(URL, "mingki", "1234");
+	
+				Statement st = con.createStatement();
+				
+				result = st.executeUpdate(sql);
+				
+				
+				    st.close();
+				    con.close();           		
+	
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return result;
 	}
 }
