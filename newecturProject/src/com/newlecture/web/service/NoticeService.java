@@ -22,7 +22,35 @@ public class NoticeService {
 		return 0;
 	}
 	public int insertNotice(Notice notice){
-		return 0; 
+		int result = 0;
+		
+		
+		String sql = "INSERT INTO NOTICE(TITLE, CONTENT, WRITER_ID,PUB) VALUES(?,?,?,?)";
+		/** JDBC URL */	
+		 String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+		 
+			/** JDBC 드라이버(driver) */
+			try {
+				Class.forName("oracle.jdbc.OracleDriver");
+				Connection con = DriverManager.getConnection(URL, "mingki", "1234");
+				PreparedStatement st = con.prepareStatement(sql);
+				st.setString(1, notice.getTitle());
+				st.setString(2, notice.getContent());
+				st.setString(3, notice.getWriterId());
+				st.setBoolean(4, notice.getPub());
+				
+				
+				result = st.executeUpdate();
+				
+				
+				    st.close();
+				    con.close();           		
+	
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return result;
 	}
 
 	public int deleteNotice(int id){
