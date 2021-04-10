@@ -16,32 +16,39 @@ import com.newlecture.web.service.NoticeService;
 public class RegController extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		// forward
-		request.getRequestDispatcher("/WEB-INF/view/admin/board/notice/reg.jsp")
-		.forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/admin/board/notice/reg.jsp").forward(request, response);
 	}
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String title = request.getParameter("title");
-		String content= request.getParameter("content");
-		String isOpen= request.getParameter("open");
+		String content = request.getParameter("content");
+		String isOpen = request.getParameter("open");
 		boolean pub = false;
+		  
 		if(isOpen != null)
 			pub = true;
-		
+		 
+
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+
 		Notice notice = new Notice();
 		notice.setTitle(title);
 		notice.setContent(content);
-		notice.setPub(pub);
+		notice.setPub(pub); 
 		notice.setWriterId("newlec");
-		
-		
-		NoticeService service = new NoticeService();
-		int result = service.insertNotice(notice);
-		
-		
-		response.sendRedirect("list");
+
+		  NoticeService service = new NoticeService(); int result =
+		  service.insertNotice(notice);
+		  
+		 
+		 response.sendRedirect("list"); 
 	}
 }
