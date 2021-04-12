@@ -1,0 +1,112 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+			<!-- 
+		                 페이징(paging) : bootstrap pagination 적용 
+		                 참조) http://getbootstrap.com/docs/4.1/components/pagination/
+             -->
+			<section id="pageList">
+			    
+			    <ul class="pagination">
+			         
+			        <!-- 처음 페이지 -->
+	        		<li class="page-item">
+						<a class="page-link" 
+						   href="${rootPath}/board/search.do?page=1&search_kind=${searchKind}&search_word=${search_word}">
+							<span class="material-icons" 
+								  style="color:#0079FF; font-size:11pt">
+			   	     		   skip_previous 
+				     		</span>
+						</a>
+					</li>
+						
+					<!-- 이전 페이지 -->	
+					<c:choose>
+				    	<c:when test="${pageVO.page <= 1}">
+							<li class="page-item">
+								<a class="page-link" 
+								   href="${rootPath}/board/search.do?page=1&search_kind=${searchKind}&search_word=${searchWord}">
+									<span class="material-icons" 
+										  style="color:#0079FF; font-size:11pt">
+					   	     		   keyboard_arrow_left
+						     		</span>
+								</a>
+							</li>
+						</c:when>
+						<c:otherwise>
+							<li class="page-item">
+								<a class="page-link" 
+								   href="${rootPath}/board/search.do?page=${pageVO.page - 1}&search_kind=${searchKind}&search_word=${searchWord}">
+								<span class="material-icons" 
+									  style="color:#0079FF; font-size:11pt">
+						 			keyboard_arrow_left
+						 		</span>
+								</a>
+							</li>
+						</c:otherwise>	
+					</c:choose>
+					
+					<!-- 페이지 나열 ex) 5,6,7,8,9 -->
+					<c:forEach var="tmpPage" 
+							   begin="${pageVO.startPage}"
+							   end="${pageVO.endPage}">
+	
+	  					<!-- 페이지가 현재 페이지일 경우 : bold(굵게) 처리 -->
+						<c:choose>
+							<c:when test="${tmpPage == pageVO.page}">
+								<li class="page-item active">
+									<b><a class="page-link" 
+										  href="${rootPath}/board/search.do?page=${tmpPage}&search_kind=${searchKind}&search_word=${searchWord}">${tmpPage}</a></b>
+								</li>
+							</c:when>	
+							<c:otherwise>
+								<li class="active">
+									<a class="page-link" 
+									   href="${rootPath}/board/search.do?page=${tmpPage}&search_kind=${searchKind}&search_word=${searchWord}">${tmpPage}</a>
+								</li>
+							</c:otherwise>
+						</c:choose>
+						
+					</c:forEach>
+					
+						
+					<!-- 다음페이지 -->
+					<c:choose>
+						<c:when test="${pageVO.page >= pageVO.maxPage}">
+							<li class="page-item">
+								<a class="page-link" 
+								   href="${rootPath}/board/search.do?page=${pageVO.page}&search_kind=${searchKind}&search_word=${searchWord}">
+									<span class="material-icons" 
+										  style="color:#0079FF; font-size:11pt">
+					   	     		   keyboard_arrow_right
+						     		</span>
+								</a>
+							</li>
+						</c:when>
+						<c:otherwise>
+							<li class="page-item">
+								<a class="page-link" 
+								   href="${rootPath}/board/search.do?page=${pageVO.page+1}&search_kind=${searchKind}&search_word=${searchWord}">
+									<span class="material-icons" 
+										  style="color:#0079FF; font-size:11pt">
+					   	     		   keyboard_arrow_right
+						     		</span> 
+								</a>	
+							</li>
+						</c:otherwise>
+					</c:choose>
+
+					<!-- 마지막 페이지 -->					
+					<li class="page-item">
+						<a class="page-link" 
+						   href="${rootPath}/board/search.do?page=${pageVO.maxPage}&search_kind=${searchKind}&search_word=${searchWord}">
+							<span class="material-icons" 
+								  style="color:#0079FF; font-size:11pt">
+			   	     		   skip_next
+				     		</span>
+						</a>
+					</li>
+				
+				</ul>
+				
+			</section>			

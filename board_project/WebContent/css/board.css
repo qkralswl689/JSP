@@ -1,0 +1,211 @@
+@charset "UTF-8";
+
+/* 구글 머티리얼 아이콘 : 오프라인 */
+@font-face {
+   font-family: 'Material Icons';
+   font-style: normal;
+   font-weight: 400;
+   src: url(/board_project/css/google/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+   src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(/board_project/css/google/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+        url(/board_project/css/google/iconfont/MaterialIcons-Regular.woff) format('woff'),
+        url(/board_project/css/google/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+} 
+
+/* 글내용 읽기 필드 크기 조절 방지 */
+textarea {
+	resize: none;
+}
+
+/* 추가 : 에러 메시지 글자 */
+.err_msg {
+	color:red;
+	text-indent: 6em;
+}
+
+
+/* 페이징 인자 모니터링 */
+#paging_params_tbl { 
+	color:yellow;
+	font-weight:bolder;
+}
+
+#paging_params_tbl td {
+	width:100px;
+}
+
+/* 등록된 글이 없을 경우, 페이징 처리 */
+#emptyArea, #pageList  
+{
+	margin:auto;
+	text-align:center;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+#board_header {
+	height:100px;
+}
+
+/* ///////////////////////////////////////////////////// */
+
+/* 게시글 조회/수정/답글/삭제 모달 팝업창 */
+/*
+#board_modal, 
+#board_update_modal, 
+#board_reply_modal,
+#board_delete_modal 
+*/
+[id$=_modal]
+{
+	position:absolute;
+	left:500px;
+	top:50px;
+	width:620px;
+	
+	background-color:#fff;
+    transition-property:all;
+    transition-delay:.1s;
+    transition-duration:.1s;
+    font-size:1em;
+    color:#333;
+    text-align:center;
+    padding:10px 10px;
+    border:3px solid rgba(200,200,200, 0.3);
+    border-radius:0px;     
+    z-index:20;
+}
+
+#board_delete_modal {
+	left:0;
+	top:0;
+}
+
+/* 모달 헤더 */
+/*
+#board_modal #modal_header, 
+#board_update_modal #modal_header,
+#board_reply_modal #modal_header,
+#board_delete_modal #modal_header 
+*/
+[id$=_modal] [id$=_header]
+{
+	margin:auto;
+	height:50px;
+	display:flex;
+	align-items:center;
+	background-color:rgba(200,200,200, 0.7);
+	border-radius:0px;  
+}
+
+/*
+#board_modal #modal_header_icon,
+#board_update_modal #modal_header_icon,
+#board_reply_modal #modal_header_icon,
+#board_delete_modal #modal_header_icon 
+*/
+[id$=_modal] [id$=_icon]
+{
+	width:50px;
+	float:left;
+	color:#333; 
+	font-size:1em;
+}
+
+/*
+#board_modal #modal_header_title,
+#board_update_modal #modal_header_title,
+#board_reply_modal #modal_header_title,
+#board_delete_modal #modal_header_title 
+*/
+[id$=_modal] [id$=_title]
+{
+	width:620px;
+	float:left;
+	padding-top:0px;
+	height:55%;
+	text-align:left;
+	font-weight:bold;
+}
+
+/*
+#board_modal #modal_header_close,
+#board_update_modal #modal_header_close,
+#board_reply_modal #modal_header_close,
+#board_delete_modal #modal_header_close 
+*/
+[id$=_modal] [id$=_header_close]
+{
+	width:50px;
+	font-size:1em; 
+	font-weight:bolder;
+}
+
+/* 모달 본문 */
+/*
+#board_modal #modal_body,
+#board_update_modal #modal_body,
+#board_reply_modal #modal_body,
+#board_delete_modal #modal_body 
+*/
+[id$=_modal] [id$=_body]
+{
+	margin-top:10px;
+	padding:10px;
+    border-radius:0px;   
+    color:#333;
+    display:flex;
+    text-align:left;
+    line-height:2em;
+}
+
+/* 모달 하단부 : 메뉴 */
+/*
+#board_modal #modal_footer,
+#board_update_modal #modal_footer,
+#board_reply_modal #modal_footer,
+#board_delete_modal #modal_footer 
+*/
+[id$=_modal] [id$=_footer]
+{
+	margin-top:10px;
+	padding-top:10px;
+	height:50px; 
+}
+
+/*
+section#viewForm,
+section#replyForm,
+section#deleteForm
+*/
+section[id$=Form]
+{
+	width: 600px;
+}
