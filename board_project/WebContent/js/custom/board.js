@@ -45,7 +45,7 @@ $(function() {
 	$("a[id^=subject_]").click(function(e) {
 		
 		// 다른 모달"들" 닫기 : 추가
-		$("#board_update_modal").hide();
+		$("#board_update_modal").hide(); 
 		$("#board_reply_modal").hide(); 
         $("#board_delete_modal").hide();
 	
