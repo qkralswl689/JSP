@@ -57,7 +57,7 @@ public class BoardViewAjaxAction implements CommandAction {
 				BoardVO board = service.getBoard(boardNum);	
 				System.out.println("게시글 : "+board);
 				
-				// 추가 조회수 증가
+				// 추가 조회수 증가(수정시 조회수 증가)
 				service.updateReadCount(boardNum);
 				
 				// 파일 원본명
