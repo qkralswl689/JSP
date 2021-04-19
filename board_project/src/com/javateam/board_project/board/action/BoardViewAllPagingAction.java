@@ -20,7 +20,7 @@ public class BoardViewAllPagingAction implements CommandAction {
 		
 		int page = request.getParameter("page")==null ? 1 :
 			     new Integer(request.getParameter("page").trim());
-		int limit = 10;
+		int limit = 10; // 한페이지당 10개씩 글
 		int pagingStep = 3;
 		
 		BoardService boardService = BoardServiceImpl.getInstance();
@@ -39,7 +39,7 @@ public class BoardViewAllPagingAction implements CommandAction {
 
    		if (endPage> maxPage) endPage = maxPage;
 
-   		// 페이징 정보(VO) 생성
+   		// 페이징 정보(VO) 생성 -> 인자가 많을 때 사용
    		PageVO pageVO = new PageVO();
    		pageVO.setEndPage(endPage);
    		pageVO.setListCount(listCount);
